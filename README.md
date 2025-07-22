@@ -1,4 +1,4 @@
-# Product Filtering Condition Editor
+# Product Filtering Condition
 
 Many capabilities of filtered sets of products.
 
