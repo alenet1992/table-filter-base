@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "main": "src/index.tsx",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm install -g serve && serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "dev": "npm start"
