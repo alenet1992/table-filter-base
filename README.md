@@ -1,10 +1,6 @@
 # Product Filtering Condition Editor
 
-Many capabilities of Salsify are built around filtered sets of products. Products at Salsify consist of properties and their values. Properties have a datatype.
-In order to create filtered sets of products in Salsify we created a condition editor. This editor is used to build a filter that Salsify applies to the full set of products. The resulting set of products, presented as a list, is updated as filters are added or changed.
-In order to create a filter users must choose a property, an operator, and one or more values. Due to the differences in property datatypes, not all operators apply to all properties.
-To complete this exercise please build a user interface to create a filter and update a list of products to reflect the results. Use the exercise to demonstrate not only a solution to the problem but your approach to software design and testing.
-Provide us with an archive containing the results of your work and a README file with a guided tour of your work, notes on your development process, how long you spent on the exercise, what assumptions you made, etc.  If you wish, this may also be presented as a live site.  In that case simply provide a link to the site and the README file mentioned above.
+Many capabilities of filtered sets of products.
 
 
 ## 📋 Project Overview
