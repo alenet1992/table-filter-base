@@ -66,6 +66,10 @@ const FilterEditor: React.FC<FilterEditorProps> = ({
       return null; 
     }
 
+    if(!selectedPropertyObj){
+      return <></>
+    }
+    
     if (selectedPropertyObj?.type === 'enumerated') {
       return (
         <select value={filterValue} onChange={(e) => setFilterValue(e.target.value)}>
@@ -76,6 +80,7 @@ const FilterEditor: React.FC<FilterEditorProps> = ({
         </select>
       );
     }
+
 
     return (
       <input
@@ -128,7 +133,7 @@ const FilterEditor: React.FC<FilterEditorProps> = ({
           </select>
         </div>
 
-        {needsValue && (
+        {needsValue && selectedProperty && (
           <div className="form-group">
             <label>Value{isMultipleOperator ? 's' : ''}</label>
             {renderValueInput()}

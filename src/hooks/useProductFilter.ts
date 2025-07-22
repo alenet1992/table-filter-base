@@ -13,7 +13,9 @@ interface UseProductFilterReturn {
  * Define type of filters
  */
 export const filterOperators: FilterOperators = {
-  equals: (value: any, filterValue: any): boolean => value === filterValue,
+  // dont verifuy type of value, prevent issue with text and number
+  // eslint-disable-next-line eqeqeq
+  equals: (value: any, filterValue: any): boolean => value == filterValue,
   greater_than: (value: any, filterValue: any): boolean => parseFloat(value) > parseFloat(filterValue),
   less_than: (value: any, filterValue: any): boolean => parseFloat(value) < parseFloat(filterValue),
   any: (value: any): boolean => value !== undefined && value !== null && value !== '',
@@ -26,12 +28,12 @@ export const filterOperators: FilterOperators = {
 export const useProductFilter = (products: Product[]): UseProductFilterReturn => {
   const [filter, setFilter] = useState<Filter | null>(null);
 
-  // UseMemo to cache the calc (re-render)
+  // UseMemo to cache the calcs (re-render)
   const filteredProducts = useMemo(() => {
     if (!filter) {
       return products;
     }
-    
+
     return products.filter(product => {
       const propertyValue = product.property_values.find(
         pv => pv.property_id === filter.propertyId
@@ -39,7 +41,9 @@ export const useProductFilter = (products: Product[]): UseProductFilterReturn =>
       const value = propertyValue ? propertyValue.value : null;
 
       const filterFunction = filterOperators[filter.operator];
-      if (!filterFunction) return false;
+      if (!filterFunction){
+         return false;
+      }
 
       if (filter.operator === 'in') {
         return filterFunction(value, filter.value as string[]);
